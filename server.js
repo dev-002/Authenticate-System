@@ -9,9 +9,11 @@ app.use(express.urlencoded({extended: true}))
 
 //Route
 const indexRoute = require('./routes/index')
+const authenticateRoute = require('./routes/login')
 const verifyRoute = require('./routes/verify')
 
 app.use('/', indexRoute)
+app.use('/login', authenticateRoute)
 app.use('/verify', verifyRoute)
 
 app.listen(process.env.PORT || 5000 , ()=> console.log("Server is Running ...."))
