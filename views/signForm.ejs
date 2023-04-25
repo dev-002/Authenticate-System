@@ -13,46 +13,50 @@
 <body>
 
     <div class="container">
-        <p class="display-2">Authentication Page</p>
-        <br>
+        <% if(userflag){%>
+            <div class="alert alert-danger" role="alert">User: <%= username %> Doesn't Exist.
+            </div>
+            <%} %>
+                <p class="display-2">Authentication Page</p>
+                <br>
 
-        <div class="m-1">
-            <button class="btn btn-primary">Sign Up</button>
-            <button class="btn btn-primary">Log In</button>
-        </div>
+                <div class="m-1">
+                    <button class="btn btn-primary">Sign Up</button>
+                    <button class="btn btn-primary">Log In</button>
+                </div>
 
-        <div class="conatiner m-5">
-            <form action="/form/login" method="post">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Log In</button>
-            </form>
+                <div class="conatiner m-5">
+                    <form action="/form/login" method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Log In</button>
+                    </form>
 
-            <div class="m-5"></div>
+                    <div class="m-5"></div>
 
-            <form action="/form/signup" method="post">
-                <div class="m-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" id="name" class="form-control">
-                </div>
-                <div class="m-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
+                    <form action="/form/signup" method="post">
+                        <div class="m-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
+                        <div class="m-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
 
-        </div>
+                </div>
 
     </div>
 

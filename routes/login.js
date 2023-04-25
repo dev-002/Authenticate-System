@@ -4,14 +4,20 @@ const User = require('../models/userSchema');
 const router = express.Router();
 
 async function authenticate({ username, password }) {
-    const user = await User.find({ username: username, password: password });
-    return user;
+    try {
+        const user = await User.findOne({ username: username, password: password });
+        // user is array of all the matched data
+        return user;
+        // but since this is a async function it will return a promise
+    }
+    catch (e) {
+        console.log(e.message);
+    }
 };
 
 async function userCreate({ name, username, password }) {
     try {
         const user = await User.create({ name, username, password });
-        await user.save();
     }
     catch (e) {
         console.log(e.message);
@@ -19,24 +25,28 @@ async function userCreate({ name, username, password }) {
 };
 
 router.get('/login', (req, res) => {
-    res.render('signForm');
+    res.render('signForm', { userflag: false });
 });
 
-router.post('/login', (req, res) => {
-    const user = authenticate(req.body);
-    console.log(user);
-    if (user !== []) {
-        res.render('loggedin', { ...req.body });
+router.post('/login', async (req, res) => {
+    try {
+        const user = await authenticate(req.body);
+        if (user !== null) {
+            res.render('loggedin', { ...req.body, alertflag: false });
+        }
+        else
+            res.render('signForm', { ...req.body, userflag: true });
     }
-    else
-        res.render('signForm');
+    catch (e) {
+        console, log(e.message);
+    }
 });
 
 router.post('/signup', (req, res) => {
 
     userCreate(req.body);
 
-    res.render('loggedin', { ...req.body })
+    res.render('loggedin', { ...req.body, alertflag: true })
 });
 
 module.exports = router;
