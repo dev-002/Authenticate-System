@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authenticate</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Authenticate</title>
 </head>
 
 <body>
@@ -21,48 +12,43 @@
                 <br>
 
                 <div class="m-1">
-                    <button class="btn btn-primary">Sign Up</button>
-                    <button class="btn btn-primary">Log In</button>
+                    <button class="btn btn-primary" id="signUp">Sign Up</button>
+                    <button class="btn btn-primary" id="logIn">Log In</button>
                 </div>
 
                 <div class="conatiner m-5">
-                    <form action="/form/login" method="post">
+                    <form action="/form/login" method="post" id="LogInForm" class="d-none">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" id="username" class="form-control">
+                            <label for="usernameLog" class="form-label">Username</label>
+                            <input type="text" name="username" id="usernameLog" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control">
+                            <label for="passwordLog" class="form-label">Password</label>
+                            <input type="password" name="password" id="passwordLog" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Log In</button>
                     </form>
 
                     <div class="m-5"></div>
 
-                    <form action="/form/signup" method="post">
-                        <div class="m-3">
+                    <form action="/form/signup" method="post" id="SignUpForm" class="d-none">
+                        <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
-                        <div class="m-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" id="username" class="form-control">
+                        <div class="mb-3">
+                            <label for="usernameSign" class="form-label">Username</label>
+                            <input type="text" name="username" id="usernameSign" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" class="form-control">
+                            <label for="passwordSign" class="form-label">Password</label>
+                            <input type="password" name="password" id="passwordSign" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
                     </form>
 
                 </div>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
-</body>
-
-</html>
+    <script src="/formJS.js"></script>

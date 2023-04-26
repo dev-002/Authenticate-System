@@ -36,6 +36,8 @@ router.post('/login', async (req, res) => {
         }
         else
             res.render('signForm', { ...req.body, userflag: true });
+            // rendering from the post route 
+            // forecully requires us to resubmit the form details
     }
     catch (e) {
         console, log(e.message);
