@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const ejs = require("ejs");
 const expressLayouts = require('express-ejs-layouts');
+const cookieParse = require('cookie-parser');
+const bcrypt = require('bcrypt');
 
 const app = express();
 
@@ -9,7 +10,8 @@ app.set("view engine", "ejs");
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 app.use(expressLayouts)
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParse());
 
 // Mongoose Database
 const dburl = process.env.DB_URL || 'mongodb://localhost:27017/Authentication-System'
