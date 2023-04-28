@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 app.use(expressLayouts)
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParse());
 
 // Mongoose Database
@@ -22,7 +22,7 @@ mongoose.connect(dburl, {
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection-error"));
-db.once("open", ()=>console.log("Database Connected"));
+db.once("open", () => console.log("Database Connected"));
 
 //Route
 const indexRoute = require('./routes/index');
@@ -33,4 +33,4 @@ app.use('/', indexRoute);
 app.use('/form', authenticateRoute);
 app.use('/secret', secretMessageRoute);
 
-app.listen(process.env.PORT || 5000 , ()=> console.log("Server is Running ...."));
+app.listen(process.env.PORT || 5000, () => console.log("Server is Running ...."));

@@ -1,27 +1,29 @@
-    <title>Logged In</title>
-    <style>
-        a.deco-none {
-            color: #ffffff;
-            text-decoration: none;
+<title>Logged In</title>
+<style>
+    a.deco-none {
+        color: #ffffff;
+        text-decoration: none;
 
-        }
+    }
 
-        .bg-menu:hover {
-            background-color: #0079C1;
-            color: #000000;
-        }
+    .bg-menu:hover {
+        background-color: #0079C1;
+        color: #000000;
+    }
 
-        .clickable {
-            cursor: pointer;
-        }
-    </style>
+    .clickable {
+        cursor: pointer;
+    }
+</style>
 </head>
 
 <body>
 
     <div class="container mt-5 text-center">
         <% if(alertflag){%>
-            <div class="alert alert-success" role="alert">User: <%= username %> Created.
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                User: <%= username %> Created.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <%} %>
                 <p class="display-2">Welcome, <%= username.toUpperCase() %>
@@ -29,15 +31,20 @@
                 <p class="mt-5">Your are logged In</p>
 
                 <div class="container">
-                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none" href="/secret/s-1">Secret
+                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none"
+                            href="/secret/s-1">Secret
                             Message 1</a></button>
-                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none" href="/secret/s-2">Secret
+                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none"
+                            href="/secret/s-2">Secret
                             Message 2</a></button>
-                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none" href="/secret/s-3">Secret
+                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none"
+                            href="/secret/s-3">Secret
                             Message 3</a></button>
-                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none" href="/secret/s-4">Secret
+                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none"
+                            href="/secret/s-4">Secret
                             Message 4</a></button>
-                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none" href="/secret/s-5">Secret
+                    <button class="btn btn-success" class="bg-menu clickable"><a class="deco-none"
+                            href="/secret/s-5">Secret
                             Message 5</a></button>
                 </div>
     </div>
