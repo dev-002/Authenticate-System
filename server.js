@@ -2,14 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParse = require('cookie-parser');
-const bcrypt = require('bcrypt');
+const passport = require('passport');
+
+const {passportInitialize} = require('./passportConfig');
+passportInitialize(passport);
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.set('views', __dirname + '/views');
 app.use(express.static('public'));
-app.use(expressLayouts)
+app.use(expressLayouts);
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParse());
 
