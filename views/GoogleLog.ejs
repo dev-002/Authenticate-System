@@ -1,0 +1,16 @@
+<title>Google Log In</title>
+</head>
+
+<body>
+    <h2>
+        <%= GoogleUser['displayName'] %>
+    </h2>
+    {
+        <% for(const property in GoogleUser){%>
+            <%= property %>: <%= GoogleUser[property] %>
+            <br>
+        <%} %>
+    }
+    <form action="  /auth/google/logout" method="get">
+        <button class="btn btn-danger">logout</button>
+    </form>

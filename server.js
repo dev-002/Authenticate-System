@@ -3,11 +3,20 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParse = require('cookie-parser');
 const passport = require('passport');
+const session = require('express-session');
 
 const {passportInitialize} = require('./passportConfig');
 passportInitialize(passport);
 
 const app = express();
+app.use(passport.initialize());
+// app.use(passport.session());
+app.use(session({
+    secret: 'Hello',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: false}
+}))
 
 app.set("view engine", "ejs");
 app.set('views', __dirname + '/views');
@@ -31,9 +40,11 @@ db.once("open", () => console.log("Database Connected"));
 const indexRoute = require('./routes/index');
 const authenticateRoute = require('./routes/login');
 const secretMessageRoute = require('./routes/secret');
+const authGoogleRoute = require('./routes/authGoogle');
 
 app.use('/', indexRoute);
 app.use('/form', authenticateRoute);
 app.use('/secret', secretMessageRoute);
+app.use('/auth/google', authGoogleRoute);
 
 app.listen(process.env.PORT || 5000, () => console.log("Server is Running ...."));
